@@ -39,6 +39,11 @@ m %>% mapPolyline(rand_lat(50), rand_lng(50))
 
 # polygon
 m %>% mapPolygon(rand_lat(), rand_lng(), layerId = 'foo')
+m %>% mapPolygon(rand_lat(), rand_lng(), layerId = 'foo', options = list(
+  fillColor = "yellow",
+  weight = 2,
+  color = "#000000"
+))
 
 # geoJSON
 seattle_geojson <- list(

@@ -75,9 +75,12 @@ mapRectangle = function(
 
 #' @export
 mapPolygon = function(map, lat, lng, layerId = NULL, options = list(), eachOptions = list()) {
-  map$x$polygon = appendList(map$x$polygon, list(
-    lat, lng, layerId, options, eachOptions
-  ))
+  data = list(
+    type = 'Feature',
+    geometry = list(type = 'Polygon', coordinates = list(unname(cbind(lng, lat)))),
+    properties = list(style = options)
+  )
+  map$x$geoJSON = appendList(map$x$geoJSON, list(data, layerId))
   map
 }
 
