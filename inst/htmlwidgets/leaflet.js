@@ -601,6 +601,8 @@ var dataframe = (function() {
             }
             div.innerHTML = legendHTML;
           }
+          if (data.legend.title)
+            $(div).prepend('<div><strong>' + data.legend.title + '</strong></div>');
           return div;
         };
 
