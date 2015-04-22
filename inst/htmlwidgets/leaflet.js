@@ -579,6 +579,7 @@ var dataframe = (function() {
           if (data.legend.type === 'numeric') {
             gradSpan = $('<span/>').css({
               'background': 'linear-gradient(' + colors + ')',
+              'opacity': data.legend.opacity,
               'height': '100px',
               'width': '18px',
               'display': 'block'
@@ -604,8 +605,8 @@ var dataframe = (function() {
               labels.push(data.legend.na_label);
             }
             for (var i = 0; i < colors.length; i++) {
-              legendHTML += '<i style="background:' + colors[i] + '"></i> ' +
-                            labels[i] + '<br/>';
+              legendHTML += '<i style="background:' + colors[i] + ';opacity:' +
+                            data.legend.opacity + '"></i> ' + labels[i] + '<br/>';
             }
             div.innerHTML = legendHTML;
           }
